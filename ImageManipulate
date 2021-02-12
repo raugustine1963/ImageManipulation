@@ -12,3 +12,19 @@ image = Image.open("dad.JPG")
 rotated_image = image.rotate(180)
 rotated_image.save("file_rotated.jpg")
 rotated_image.show()
+
+# A simple program that does basic edits to an image.
+from PIL import Image, ImageFilter
+
+imageName=input("Enter the image name - include the file extension: ")
+print("What would you like to do?")
+doPic = input("Type 1 to blur.")
+doPic = input("Type 2 to rotate.")
+
+
+before = Image.open(imageName)
+after = before.filter(ImageFilter.BoxBlur(10))
+after.save("out.JPG")
+
+before.show()
+after.show()
