@@ -1,0 +1,14 @@
+from PIL import Image, ImageFilter
+before = Image.open("dad.JPG")
+after = before.filter(ImageFilter.BoxBlur(10))
+after.save("out.JPG")
+
+before.show()
+after.show()
+
+#This section needs to be merged with the above.
+from PIL import Image
+image = Image.open("dad.JPG")
+rotated_image = image.rotate(180)
+rotated_image.save("file_rotated.jpg")
+rotated_image.show()
