@@ -11,20 +11,21 @@ print(answer)
 
 #If 1 blur the image
 if answer == 1:
-    before = Image.open("dad.JPG")
-    after = before.filter(ImageFilter.BoxBlur(10))
+    before = input("Enter the image name: ")
+    before1 = Image.open(before)
+    after = before1.filter(ImageFilter.BoxBlur(20))
     after.save("out.JPG")
-    before.show()
+    before1.show()
     after.show()
 
 # If 2 rotate the image
 elif answer ==2:
     from PIL import Image
-    image = Image.open("dad.JPG")
-    rotated_image = image.rotate(270)
-    rotated_image.save("file_rotated.jpg")
-    rotated_image.show()
+    before = input("Enter the image name: ")
+    before1 = Image.open(before)
+    after = before1.rotate(270)
+    after.save("after.jpg")
+    after.show()
 
 print("The following are the image format, size, and the color mode:")
-print(image.format, image.size, image.mode)
-    
+print(after.format, after.size, after.mode)
