@@ -1,5 +1,3 @@
-# https://pillow.readthedocs.io/en/stable/handbook/tutorial.html
-
 from PIL import Image, ImageFilter
 
 # Get the user to answer what image function they'd like to perform then type in the answer.
@@ -22,8 +20,9 @@ if answer == 1:
 elif answer ==2:
     from PIL import Image
     before = input("Enter the image name: ")
+    degrees_rotated = int(input("How many degrees do you want to rotate?"))
     before1 = Image.open(before)
-    after = before1.rotate(270)
+    after = before1.rotate(degrees_rotated)
     after.save("after.jpg")
     after.show()
 
