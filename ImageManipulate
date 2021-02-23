@@ -1,9 +1,14 @@
 from PIL import Image, ImageFilter
+from PIL.ImageFilter import (
+   BLUR, CONTOUR, DETAIL, EDGE_ENHANCE, EDGE_ENHANCE_MORE,
+   EMBOSS, FIND_EDGES, SMOOTH, SMOOTH_MORE, SHARPEN
+)
 
 # Get the user to answer what image function they'd like to perform then type in the answer.
 print("What would you like to do? ")
 print("1. Blur the image.")
 print("2. Rotate the image.")
+print("3. Emboss the image.")
 answer = int(input("Type number here: "))
 print(answer)
 
@@ -17,13 +22,19 @@ if answer == 1:
     after.show()
 
 # If 2 rotate the image
-elif answer ==2:
+elif answer == 2:
     from PIL import Image
     before = input("Enter the image name: ")
-    degrees_rotated = int(input("How many degrees do you want to rotate?"))
+    degrees_rotated = int(input("How many degrees do you want to rotate? "))
     before1 = Image.open(before)
     after = before1.rotate(degrees_rotated)
     after.save("after.jpg")
+    after.show()
+    
+elif answer == 3:
+    before = input("Enter the image name: ")
+    before1 = Image.open(before)
+    after = before1.filter(EMBOSS)
     after.show()
 
 print("The following are the image format, size, and the color mode:")
